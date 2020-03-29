@@ -1,0 +1,254 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Hunor & Josefin 2021</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body:before {
+            content: '';
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            background-image: url(content/HJ_005.jpg);
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            -webkit-filter: blur(10px);
+            -moz-filter: blur(10px);
+            -o-filter: blur(10px);
+            -ms-filter: blur(10px);
+            filter: blur(10px);
+            z-index: -1;
+        }
+        
+        .contact-form {
+            position: relative;
+            text-align: center;
+            width: 220px;
+            height: 40px;
+            padding: 0px 0px;
+            padding-left: 0px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            background: rgba(99, 72, 72, 0.25);
+            background: #ffffff6e;
+        }
+        
+        .contact-form input {
+            width: 100%;
+        }
+        
+        .contact-form input[type="password"] {
+            text-align: center;
+            border: none;
+            border-bottom: 0px solid #fff;
+            background: transparent;
+            outline: none;
+            height: 40px;
+            color: rgb(139, 139, 139);
+            color: #fff;
+            /*CHANGED #fff*/
+            font-size: 16px;
+            color: black;
+        }
+        
+         ::placeholder {
+            color: rgb(97, 96, 96);
+            color: #fff;
+            text-align: center;
+        }
+        
+        .btnbox {
+            position: relative;
+            float: right;
+            margin-left: 10px;
+        }
+        
+        img.submit {
+            filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(56deg) brightness(85%) contrast(104%);
+        }
+        
+        img.submit:hover {
+            filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(56deg) brightness(110%) contrast(104%);
+        }
+        
+        .container {
+            justify-content: center;
+            height: inherit
+        }
+        
+        .center {
+            justify-content: center;
+            text-align: center;
+            width: 100%;
+            margin-top: 5vh;
+        }
+        
+        .responsive {
+            padding-top: 10%;
+            width: 60%;
+            height: 60%;
+        }
+        
+        .password-submit {
+            width: 50%;
+            text-align: center;
+            display: flex;
+            margin-left: 25%;
+            align-items: center;
+            justify-content: center;
+            margin-top: 5px;
+        }
+        
+        @media all and (max-width: 720px) {
+            /* 768px is usually the width of tablets in portrait orientation */
+            .responsive {
+                width: 80%;
+                height: auto;
+                background-size: cover;
+            }
+        }
+        
+        @media all and (min-width: 960px) {
+            .responsive {
+                width: 50%;
+                height: auto;
+            }
+        }
+        
+        @media all and (min-width: 1170px) {
+            .responsive {
+                width: 45%;
+                height: auto;
+            }
+        }
+        
+        @media all and (min-width: 1300px) {
+            .responsive {
+                width: 40%;
+                height: auto;
+            }
+        }
+        /* DEVICES*/
+        
+        @media only screen and (max-device-width: 480px) {
+            /* styles for mobile browsers smaller than 480px; (iPhone) */
+            body:before {
+                background-size: cover;
+                background-position: 20%;
+            }
+            .responsive {
+                width: 80%;
+                height: auto;
+            }
+        }
+        
+        @media only screen and (max-device-width: 400px) {
+            /* styles for mobile browsers smaller than 480px; (iPhone) */
+            body:before {
+                background-size: cover;
+                background-position: 25%;
+            }
+            .responsive {
+                width: 100%;
+                height: auto;
+            }
+        }
+        
+        @media only screen and (device-width: 768px) {
+            /* default iPad screens */
+            .responsive {
+                width: 80%;
+                height: auto;
+            }
+        }
+        /* different techniques for iPad screening */
+        
+        @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
+            /* For portrait layouts only */
+            .responsive {
+                width: 80%;
+                height: auto;
+            }
+            body:before {
+                background-size: cover;
+                background-position: 10%;
+            }
+        }
+        
+        @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
+            .responsive {
+                width: 80%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="center">
+
+            <img class="responsive" src="content/welcome_pic.png"></img>
+
+
+            <div class="password-submit">
+                <div class="contact-form">
+                    <input data-id="password" type="password" placeholder="Enter Password">
+                </div>
+                <div class="btnbox">
+                    <img onclick="login(password[0].value)" type="button" class="submit" data-id="button" src="content/sign-in-alt-solid.svg" width="35px" height="35px"></img>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/js-sha1/0.6.0/sha1.min.js"></script>
+    <script type="text/javascript">
+        "use strict"
+        var button = document.querySelectorAll('[data-id="button"]')
+        var password = document.querySelectorAll('[data-id="password"]')
+
+        function login(secret) {
+            var hash = sha1(secret)
+            var url = hash + "/index.html"
+
+            var request = new XMLHttpRequest()
+            request.open('GET', url, true)
+
+            request.onload = function() {
+                if (request.status >= 200 && request.status < 400) {
+                    window.location = url
+                } else {
+                    password[0].setAttribute('placeholder', 'Incorrect password')
+                    password[0].value = ''
+                }
+            }
+            request.onerror = function() {
+                password[0].setAttribute('placeholder', 'Incorrect password')
+                password[0].value = ''
+            }
+            request.send()
+        }
+
+        document.onkeydown = function(e) {
+            e = e || window.event
+            if (e.keyCode == 13) {
+                login(password[0].value)
+            }
+        }
+    </script>
+
+</body>
+
+</html>
