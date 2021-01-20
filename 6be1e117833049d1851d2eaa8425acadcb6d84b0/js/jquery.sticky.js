@@ -89,7 +89,7 @@
                 //-----Update site-top-logo top distance
                 var asiteTopLogo = document.querySelectorAll(".site-top-logo");
                 asiteTopLogo = asiteTopLogo[0];
-                str_newSiteTopLogoTop = (asiteTopLogo.offsetHeight * -0.85).toString();
+                str_newSiteTopLogoTop = (asiteTopLogo.offsetHeight * -0.65).toString();
                 asiteTopLogo.style.top = str_newSiteTopLogoTop.concat("px");
                 //end-----------------------
 
