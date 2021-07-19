@@ -57,10 +57,10 @@
                 //-----update anchor offset
                 var stickyHeight = document.getElementById('sticky-wrapper').clientHeight;
 
-                var clockObj = document.getElementById("sitesectionClock");
-                var clockHeight = clockObj.clientHeight;
-                var clockPadding = parseFloat(window.getComputedStyle(clockObj).paddingTop);
-                var totClockHeight = clockHeight;
+                // var clockObj = document.getElementById("sitesectionClock");
+                // var clockHeight = clockObj.clientHeight;
+                // var clockPadding = parseFloat(window.getComputedStyle(clockObj).paddingTop);
+                // var totClockHeight = clockHeight;
                 if (window.innerWidth < 768) {
                     var heightFirstElement = (stickyHeight * 1.5);
                     var heightRestElements = stickyHeight * 1.5;
