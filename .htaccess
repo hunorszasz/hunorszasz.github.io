@@ -2,3 +2,7 @@
 RewriteEngine On
 RewriteCond %{HTTPS} !=on
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# Rewrite /photos 
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^hunorjosefin.se
+RewriteRule ^/photo http://213.64.226.215:80/gallery [P]
